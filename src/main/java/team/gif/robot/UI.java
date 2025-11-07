@@ -1,6 +1,8 @@
 package team.gif.robot;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 
 public class UI {
     /**
@@ -13,6 +15,9 @@ public class UI {
      *  and save file as "YYYY elastic-layout.json"
      */
     public UI() {
+        ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("Preseason 3");
+        shuffleboardTab.addDouble("Heading", Robot.pigeon::get360Heading).withWidget(BuiltInWidgets.kGyro);
+        shuffleboardTab.addDouble("NEO Position", Robot.elevatorNEO::getPosition);
         
     }
 

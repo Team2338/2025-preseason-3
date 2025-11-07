@@ -11,33 +11,22 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
 public class DriveTrain extends SubsystemBase {
-    public WPI_TalonSRX rearRightCIM;
-    public WPI_TalonSRX frontLeftCIM;
-    public WPI_TalonSRX frontRightCIM;
-    public WPI_TalonSRX rearLeftCIM;
+    public WPI_TalonSRX rightCIM;
+    public WPI_TalonSRX leftCIM;
 
     private DifferentialDrive driveTrain;
     public DriveTrain() {
         /** Creates a new ExampleSubsystem. */
-        rearLeftCIM = new WPI_TalonSRX(RobotMap.CIM_REAR_LEFT);
-        rearRightCIM = new WPI_TalonSRX(RobotMap.CIM_REAR_RIGHT);
-        frontLeftCIM = new WPI_TalonSRX(RobotMap.CIM_FRONT_LEFT);
-        frontRightCIM = new WPI_TalonSRX(RobotMap.CIM_FRONT_RIGHT);
+        rightCIM = new WPI_TalonSRX(RobotMap.CIM_RIGHT);
+        leftCIM = new WPI_TalonSRX(RobotMap.CIM_LEFT);
 
-        rearLeftCIM.configFactoryDefault();
-        rearRightCIM.configFactoryDefault();
-        frontRightCIM.configFactoryDefault();
-        frontLeftCIM.configFactoryDefault();
+        rightCIM.configFactoryDefault();
+        leftCIM.configFactoryDefault();
 
-        rearLeftCIM.setNeutralMode(NeutralMode.Brake);
-        rearRightCIM.setNeutralMode(NeutralMode.Brake);
-        frontRightCIM.setNeutralMode(NeutralMode.Brake);
-        frontLeftCIM.setNeutralMode(NeutralMode.Brake);
+        rightCIM.setNeutralMode(NeutralMode.Brake);
+        leftCIM.setNeutralMode(NeutralMode.Brake);
 
-        rearRightCIM.follow(frontRightCIM);
-        rearLeftCIM.follow(frontLeftCIM);
-
-        driveTrain = new DifferentialDrive(frontLeftCIM, frontRightCIM);
+        driveTrain = new DifferentialDrive(leftCIM, rightCIM);
     }
     //Type 1 TankDrive
     public void driverArcade(double speed, double rotation){

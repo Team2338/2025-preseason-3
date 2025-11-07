@@ -13,6 +13,7 @@ package team.gif.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-
+    public static final double ELEVATOR_VOLT = 0.5;
+    public static final double HOLD_ELEVATOR_VOLT = 0.3;
 
 }

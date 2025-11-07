@@ -7,9 +7,9 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import team.gif.lib.logging.EventFileLogger;
-import team.gif.lib.logging.TelemetryFileLogger;
+import team.gif.robot.commands.ArcadeDrive;
 import team.gif.robot.commands.Autos.ForwardAuto;
+import team.gif.robot.subsystems.ElevatorNEO;
 import team.gif.robot.subsystems.drivers.DriveTrain;
 import team.gif.robot.subsystems.drivers.Pigeon;
 
@@ -26,6 +26,7 @@ public class Robot extends TimedRobot {
   public static DriveTrain arcadeDrive;
   public static Pigeon pigeon;
   public static Command autonamousCommand;
+  public static ElevatorNEO elevatorNEO;
 
   public static UI ui;
 
@@ -41,7 +42,9 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
     arcadeDrive = new DriveTrain();
+    arcadeDrive.setDefaultCommand(new ArcadeDrive());
     autonamousCommand = new ForwardAuto();
+    elevatorNEO = new ElevatorNEO();
     //These should be at or near the bottom
     oi = new OI();
     ui = new UI();
@@ -64,6 +67,8 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     ui.update();
+      System.out.println(pigeon.getHeading());
+      System.out.println(elevatorNEO.getPosition());
 
   }
 
