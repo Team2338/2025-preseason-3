@@ -1,14 +1,13 @@
 package team.gif.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class ElevatorUpManual extends Command {
+public class ZeroEncoder extends Command {
 
-    public ElevatorUpManual() {
+    public ZeroEncoder() {
         super();
-        addRequirements(Robot.elevatorNEO); // uncomment
+        //addRequirements(Robot.climber); // uncomment
     }
 
     // Called when the command is initially scheduled.
@@ -18,11 +17,7 @@ public class ElevatorUpManual extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double manualUp = Robot.oi.driver.getLeftY();
-        Robot.elevatorNEO.setVoltage(manualUp);
-        if(Robot.elevatorNEO.getPosition() == Constants.FINAL_POSITION) {
-            Robot.elevatorNEO.setVoltage(Constants.HOLD_ELEVATOR_FF);
-        }
+        Robot.elevatorNEO.zeroEncoder();
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

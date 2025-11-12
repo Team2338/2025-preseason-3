@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.ArcadeDrive;
 import team.gif.robot.commands.Autos.ForwardAuto;
+import team.gif.robot.commands.ElevatorUpManual;
+import team.gif.robot.subsystems.CollectorCIM;
 import team.gif.robot.subsystems.ElevatorNEO;
 import team.gif.robot.subsystems.drivers.DriveTrain;
 import team.gif.robot.subsystems.drivers.Pigeon;
@@ -27,6 +29,7 @@ public class Robot extends TimedRobot {
   public static Pigeon pigeon;
   public static Command autonamousCommand;
   public static ElevatorNEO elevatorNEO;
+  public static CollectorCIM collector;
 
   public static UI ui;
 
@@ -45,6 +48,8 @@ public class Robot extends TimedRobot {
     arcadeDrive.setDefaultCommand(new ArcadeDrive());
     autonamousCommand = new ForwardAuto();
     elevatorNEO = new ElevatorNEO();
+    elevatorNEO.setDefaultCommand(new ElevatorUpManual());
+    collector = new CollectorCIM();
     //These should be at or near the bottom
     oi = new OI();
     ui = new UI();

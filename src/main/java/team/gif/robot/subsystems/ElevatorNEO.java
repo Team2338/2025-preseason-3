@@ -26,7 +26,7 @@ public class ElevatorNEO extends SubsystemBase {
 
     private SparkMax motor;
     public SparkClosedLoopController neoPID;
-    private SparkMaxConfig config;
+    public SparkMaxConfig config;
     public RelativeEncoder encoder;
     public EncoderConfig encoderConfig;
     public ElevatorNEO() {
@@ -38,8 +38,8 @@ public class ElevatorNEO extends SubsystemBase {
         config.idleMode(SparkBaseConfig.IdleMode.kBrake);
         config.inverted(true);
 
-        config.closedLoop.pid(0.00087, 0.00000005, 0.0);
 
+        //Spark Encoder value for 1 rotation = 42
         encoder.setPosition(0);
     }
 
@@ -57,5 +57,9 @@ public class ElevatorNEO extends SubsystemBase {
 
     public void setRPM(double RPM) {
         neoPID.setReference(RPM, SparkBase.ControlType.kVelocity);
+    }
+
+    public void zeroEncoder() {
+        motor.getEncoder().setPosition(0);
     }
 }

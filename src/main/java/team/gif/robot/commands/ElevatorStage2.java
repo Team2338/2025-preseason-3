@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class ElevatorUpManual extends Command {
+public class ElevatorStage2 extends Command {
 
-    public ElevatorUpManual() {
+    public ElevatorStage2() {
         super();
         addRequirements(Robot.elevatorNEO); // uncomment
     }
@@ -18,20 +18,18 @@ public class ElevatorUpManual extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double manualUp = Robot.oi.driver.getLeftY();
-        Robot.elevatorNEO.setVoltage(manualUp);
-        if(Robot.elevatorNEO.getPosition() == Constants.FINAL_POSITION) {
-            Robot.elevatorNEO.setVoltage(Constants.HOLD_ELEVATOR_FF);
-        }
+        Robot.elevatorNEO.setVoltage(Constants.ELEVATOR_VOLT);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return false;
+        return Robot.elevatorNEO.getPosition() == 42 * 10; //Needs testing
     }
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {}
+    public void end(boolean interrupted) {
+        Robot.elevatorNEO.setVoltage(0);
+    }
 }
