@@ -50,6 +50,7 @@ public class Robot extends TimedRobot {
     elevatorNEO = new ElevatorNEO();
     elevatorNEO.setDefaultCommand(new ElevatorUpManual());
     collector = new CollectorCIM();
+    pigeon = new Pigeon(RobotMap.PIGEON_ID);
     //These should be at or near the bottom
     oi = new OI();
     ui = new UI();
