@@ -19,7 +19,7 @@ public class ElevatorHold extends Command {
     @Override
     public void execute() {
 
-        Robot.elevatorNEO.setVoltage();
+        Robot.elevatorNEO.setVoltage(Constants.HOLD_ELEVATOR_FF);
         //Placeholder FF value, needs testing
     }
 
