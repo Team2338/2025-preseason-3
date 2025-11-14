@@ -8,7 +8,7 @@ public class CollectorReverse extends Command {
 
     public CollectorReverse() {
         super();
-        //addRequirements(Robot.climber); // uncomment
+        addRequirements(Robot.collector); // uncomment
     }
 
     // Called when the command is initially scheduled.

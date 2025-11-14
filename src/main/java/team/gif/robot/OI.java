@@ -1,8 +1,13 @@
 package team.gif.robot;
 
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.ZeroEncoder;
+import team.gif.robot.commands.CollectorForward;
+import team.gif.robot.commands.CollectorReverse;
+import team.gif.robot.commands.ElevatorStage1;
+import team.gif.robot.commands.ElevatorStage2;
+import team.gif.robot.commands.ElevatorStage3;
 
 public class OI {
     /*
@@ -88,10 +93,12 @@ public class OI {
          *   aX.onTrue(new PrintCommand("aX"));
          */
 
-
-
-        aDPadLeft.onTrue(new ZeroEncoder());
-
+        aDPadLeft.onTrue(new InstantCommand(Robot.elevatorNEO::zeroEncoder).ignoringDisable(true));
+        aA.whileTrue(new ElevatorStage1());
+        aB.whileTrue(new ElevatorStage2());
+        aX.whileTrue(new ElevatorStage3());
+        aLBump.whileTrue(new CollectorReverse());
+        aRBump.whileTrue(new CollectorForward());
     }
 
 }

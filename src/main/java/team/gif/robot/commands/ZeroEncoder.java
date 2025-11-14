@@ -7,7 +7,7 @@ public class ZeroEncoder extends Command {
 
     public ZeroEncoder() {
         super();
-        //addRequirements(Robot.climber); // uncomment
+        addRequirements(Robot.elevatorNEO); // uncomment
     }
 
     // Called when the command is initially scheduled.

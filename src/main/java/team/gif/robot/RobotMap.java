@@ -8,6 +8,6 @@ public abstract class RobotMap {
     public static final int CIM_RIGHT = 0; //Put in actual ID
     public static final int CIM_LEFT = 0; //Put in actual ID
     public static final int ELEVATOR_NEO_ID = 0; //put in actual ID
-    public static final int COLLECTOR_CIM_ID = 0; //
+    public static final int COLLECTOR_CIM_ID = 0; //put in actual ID
     // Put in actual ID
 }

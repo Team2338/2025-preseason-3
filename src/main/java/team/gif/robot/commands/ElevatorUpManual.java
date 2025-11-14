@@ -18,10 +18,16 @@ public class ElevatorUpManual extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double manualUp = Robot.oi.driver.getLeftY();
-        Robot.elevatorNEO.setVoltage(manualUp);
-        if(Robot.elevatorNEO.getPosition() == Constants.FINAL_POSITION) {
-            Robot.elevatorNEO.setVoltage(Constants.HOLD_ELEVATOR_FF);
+        double manualUp = Robot.oi.aux.getLeftY();
+
+        if(Robot.elevatorNEO.getPosition() >= Constants.FINAL_POSITION) {
+            if (manualUp <= 0) {
+                Robot.elevatorNEO.setVoltage(Constants.SAFE_FALL_VOLT);
+            } else {
+                Robot.elevatorNEO.setVoltage(Constants.HOLD_ELEVATOR_FF);
+            }
+        } else {
+            Robot.elevatorNEO.setVoltage(manualUp);
         }
     }
 

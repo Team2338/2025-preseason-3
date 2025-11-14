@@ -14,16 +14,11 @@ import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
-import team.gif.robot.commands.ElevatorHold;
 
 public class ElevatorNEO extends SubsystemBase {
     /**
      * Creates a new ExampleSubsystem.
      */
-    public void initDefaultCommand(){
-        setDefaultCommand(new ElevatorHold());
-    }
-
     private SparkMax motor;
     public SparkClosedLoopController neoPID;
     public SparkMaxConfig config;
@@ -62,4 +57,6 @@ public class ElevatorNEO extends SubsystemBase {
     public void zeroEncoder() {
         motor.getEncoder().setPosition(0);
     }
+
+
 }
