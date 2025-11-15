@@ -3,8 +3,10 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.CollectorForward;
-import team.gif.robot.commands.CollectorReverse;
+import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
+import team.gif.robot.commands.CollectorIntakeForward;
+import team.gif.robot.commands.CollectorIntakeRearForward;
+import team.gif.robot.commands.CollectorIntakeReverse;
 import team.gif.robot.commands.ElevatorStage1;
 import team.gif.robot.commands.ElevatorStage2;
 import team.gif.robot.commands.ElevatorStage3;
@@ -97,8 +99,13 @@ public class OI {
         aA.whileTrue(new ElevatorStage1());
         aB.whileTrue(new ElevatorStage2());
         aX.whileTrue(new ElevatorStage3());
-        aLBump.whileTrue(new CollectorReverse());
-        aRBump.whileTrue(new CollectorForward());
+        aLBump.whileTrue(new CollectorIntakeReverse());
+        aRBump.whileTrue(new CollectorIntakeForward());
+        aY.whileTrue(new CollectorIntakeRearForward());
+        tA.whileTrue(Robot.elevatorNEO.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
+        tB.whileTrue(Robot.elevatorNEO.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
+        tX.whileTrue(Robot.elevatorNEO.sysIDDynamic(SysIdRoutine.Direction.kForward));
+        tY.whileTrue(Robot.elevatorNEO.sysIDDynamic(SysIdRoutine.Direction.kReverse));
     }
 
 }

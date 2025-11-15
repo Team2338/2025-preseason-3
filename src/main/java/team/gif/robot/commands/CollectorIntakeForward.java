@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class CollectorReverse extends Command {
+public class CollectorIntakeForward extends Command {
 
-    public CollectorReverse() {
+    public CollectorIntakeForward() {
         super();
         addRequirements(Robot.collector); // uncomment
     }
@@ -18,7 +18,7 @@ public class CollectorReverse extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.collector.talonMotorMove(-Constants.CIM_MOTOR_PERC);
+        Robot.collector.talonMotorMoveIntake(Constants.CIM_MOTOR_PERC);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -30,6 +30,6 @@ public class CollectorReverse extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.collector.talonMotorMove(0);
+        Robot.collector.talonMotorMoveIntake(0);
     }
 }

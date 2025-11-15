@@ -22,5 +22,9 @@ public final class Constants {
     public static final double STAGE_ONE_VALUE = 42 * 15; //Needs testing
     public static final double STAGE_TWO_VALUE = 42 * 15; //needs testing
     public static final double STAGE_THREE_VALUE = 42 * 15; //needs testing
+    public static final double KG_ELEVATOR = 10; //Placeholder needs actual value
+    public static final double KS_ELEVATOR = 10; //Placeholder needs actual value
+    public static final double KV_ELEVATOR = 10; //Placeholder needs actual value
+
 
 }

@@ -4,11 +4,11 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class ElevatorUpManual extends Command {
+public class CollectorIntakeReverse extends Command {
 
-    public ElevatorUpManual() {
+    public CollectorIntakeReverse() {
         super();
-        addRequirements(Robot.elevatorNEO); // uncomment
+        addRequirements(Robot.collector); // uncomment
     }
 
     // Called when the command is initially scheduled.
@@ -18,13 +18,7 @@ public class ElevatorUpManual extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double manualUp = Robot.oi.aux.getLeftY();
-
-        if(Robot.elevatorNEO.getPosition() >= Constants.FINAL_POSITION && manualUp < 0) {
-            Robot.elevatorNEO.setVoltage(Constants.SAFE_FALL_VOLT);
-        } else {
-            Robot.elevatorNEO.setVoltage(manualUp);
-        }
+        Robot.collector.talonMotorMoveIntake(-Constants.CIM_MOTOR_PERC);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -35,5 +29,7 @@ public class ElevatorUpManual extends Command {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {}
+    public void end(boolean interrupted) {
+        Robot.collector.talonMotorMoveIntake(0);
+    }
 }
