@@ -26,5 +26,4 @@ public final class Constants {
     public static final double KS_ELEVATOR = 10; //Placeholder needs actual value
     public static final double KV_ELEVATOR = 10; //Placeholder needs actual value
 
-
 }

@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.ArcadeDrive;
 import team.gif.robot.commands.Autos.ForwardAuto;
-import team.gif.robot.commands.ElevatorUpManual;
+import team.gif.robot.commands.ElevatorManual;
 import team.gif.robot.subsystems.CollectorCIM;
 import team.gif.robot.subsystems.ElevatorNEO;
 import team.gif.robot.subsystems.drivers.DriveTrain;
@@ -48,7 +48,7 @@ public class Robot extends TimedRobot {
     arcadeDrive.setDefaultCommand(new ArcadeDrive());
     autonamousCommand = new ForwardAuto();
     elevatorNEO = new ElevatorNEO();
-    elevatorNEO.setDefaultCommand(new ElevatorUpManual());
+    elevatorNEO.setDefaultCommand(new ElevatorManual());
     collector = new CollectorCIM();
     pigeon = new Pigeon(RobotMap.PIGEON_ID);
     //These should be at or near the bottom

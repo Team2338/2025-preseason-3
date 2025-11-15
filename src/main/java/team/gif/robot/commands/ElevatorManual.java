@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class ElevatorUpManual extends Command {
+public class ElevatorManual extends Command {
 
-    public ElevatorUpManual() {
+    public ElevatorManual() {
         super();
         addRequirements(Robot.elevatorNEO); // uncomment
     }
@@ -19,9 +19,17 @@ public class ElevatorUpManual extends Command {
     @Override
     public void execute() {
         double manualUp = Robot.oi.aux.getLeftY();
+        double initialPosition = Robot.elevatorNEO.getPosition();
+        initialPosition = 0;
 
-        if(Robot.elevatorNEO.getPosition() >= Constants.FINAL_POSITION && manualUp < 0) {
-            Robot.elevatorNEO.setVoltage(Constants.SAFE_FALL_VOLT);
+        if(Robot.elevatorNEO.getPosition() >= Constants.FINAL_POSITION && manualUp > 0) {
+            Robot.elevatorNEO.setVoltage(0);
+        } else {
+            Robot.elevatorNEO.setVoltage(manualUp);
+        }
+
+        if(Robot.elevatorNEO.getPosition() >= Constants.FINAL_POSITION && manualUp > 0) {
+            Robot.elevatorNEO.setVoltage(0);
         } else {
             Robot.elevatorNEO.setVoltage(manualUp);
         }

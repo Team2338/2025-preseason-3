@@ -24,7 +24,6 @@ public class ElevatorStage2 extends Command {
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        Robot.elevatorNEO.setVoltage(Constants.HOLD_ELEVATOR_FF);
        return Robot.elevatorNEO.getPosition() >= Constants.STAGE_TWO_VALUE; //Needs testing
     }
 
