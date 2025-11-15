@@ -17,7 +17,8 @@ public class UI {
     public UI() {
         ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("Preseason 3");
         shuffleboardTab.addDouble("Heading", Robot.pigeon::get360Heading).withWidget(BuiltInWidgets.kGyro);
-        shuffleboardTab.addDouble("NEO Position", Robot.elevatorNEO::getPosition);
+        shuffleboardTab.addDouble("NEO Position", Robot.elevatorNEO::getPosition).withWidget(BuiltInWidgets.kEncoder);
+        shuffleboardTab.addDouble("Spark voltage", Robot.elevatorNEO::getVoltage).withWidget(BuiltInWidgets.kVoltageView);
         
     }
 

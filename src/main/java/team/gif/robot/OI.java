@@ -102,6 +102,8 @@ public class OI {
         aLBump.whileTrue(new CollectorIntakeReverse());
         aRBump.whileTrue(new CollectorIntakeForward());
         aY.whileTrue(new CollectorIntakeRearForward());
+
+      //sys routine for finding FF values.
         tA.whileTrue(Robot.elevatorNEO.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
         tB.whileTrue(Robot.elevatorNEO.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
         tX.whileTrue(Robot.elevatorNEO.sysIDDynamic(SysIdRoutine.Direction.kForward));

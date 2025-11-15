@@ -10,5 +10,7 @@ public abstract class RobotMap {
     public static final int ELEVATOR_NEO_ID = 0; //put in actual ID
     public static final int COLLECTOR_CIM_ID = 0; //put in actual ID
     public static final int PIGEON_ID = 0; //put in actual ID
+    public static final int CIM_REAR_LEFT_ID = 0;
+    public static final int CIM_REAR_RIGHT_ID = 0;
     // Put in actual ID
 }

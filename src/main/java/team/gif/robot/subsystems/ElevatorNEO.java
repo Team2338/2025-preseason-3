@@ -5,14 +5,12 @@
 package team.gif.robot.subsystems;
 
 import com.revrobotics.RelativeEncoder;
-import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.EncoderConfig;
 import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
-import edu.wpi.first.math.controller.ArmFeedforward;
 import edu.wpi.first.math.controller.ElevatorFeedforward;
 import edu.wpi.first.units.measure.MutAngle;
 import edu.wpi.first.units.measure.MutAngularVelocity;
@@ -72,7 +70,8 @@ public class ElevatorNEO extends SubsystemBase {
         motor.getEncoder().setPosition(0);
     }
 
-    private SysIdRoutine getArmSysIdRoutine() {
+    //Gives values for FF
+    private SysIdRoutine getElevatorSysIdRoutine() {
         MutVoltage m_appliedVoltage = Volts.mutable(0);
         MutAngle m_angle = Radians.mutable(0);
         MutAngularVelocity m_velocity = RadiansPerSecond.mutable(0);
@@ -93,10 +92,10 @@ public class ElevatorNEO extends SubsystemBase {
     }
 
     public Command sysIdQuasistatic(SysIdRoutine.Direction direction){
-        return getArmSysIdRoutine().quasistatic(direction);
+        return getElevatorSysIdRoutine().quasistatic(direction);
     }
 
     public Command sysIDDynamic(SysIdRoutine.Direction direction){
-        return getArmSysIdRoutine().dynamic(direction);
+        return getElevatorSysIdRoutine().dynamic(direction);
     }
 }

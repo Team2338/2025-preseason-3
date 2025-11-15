@@ -23,12 +23,12 @@ public class CollectorCIM extends SubsystemBase {
         talonMotorIntake.configFactoryDefault();
         talonMotorIntake.setNeutralMode(NeutralMode.Brake);
 
-        talonMotorIntakeRearLeft = new TalonSRX(RobotMap.COLLECTOR_CIM_ID);
+        talonMotorIntakeRearLeft = new TalonSRX(RobotMap.CIM_REAR_LEFT_ID);
         talonMotorIntakeRearLeft.configFactoryDefault();
         talonMotorIntakeRearLeft.setNeutralMode(NeutralMode.Brake);
         talonMotorIntakeRearLeft.setInverted(true);
 
-        talonMotorIntakeRearRight = new TalonSRX(RobotMap.COLLECTOR_CIM_ID);
+        talonMotorIntakeRearRight = new TalonSRX(RobotMap.CIM_REAR_RIGHT_ID);
         talonMotorIntakeRearRight.configFactoryDefault();
         talonMotorIntakeRearRight.setNeutralMode(NeutralMode.Brake);
         talonMotorIntakeRearRight.setInverted(true);
