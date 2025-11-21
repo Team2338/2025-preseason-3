@@ -48,12 +48,13 @@ public class ElevatorNEO extends SubsystemBase {
 
         //Spark Encoder value for 1 rotation = 42
         encoder.setPosition(0);
-
+    /*
         config.softLimit
                 .forwardSoftLimit(Constants.FINAL_POSITION)
                 .forwardSoftLimitEnabled(true)
                 .reverseSoftLimit(Constants.STARTING_POSITION)
                 .reverseSoftLimitEnabled(true);
+     */
     }
 
     public double getPosition() {

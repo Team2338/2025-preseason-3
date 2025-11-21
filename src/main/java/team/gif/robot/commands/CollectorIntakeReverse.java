@@ -19,6 +19,7 @@ public class CollectorIntakeReverse extends Command {
     @Override
     public void execute() {
         Robot.collector.talonMotorMoveIntake(-Constants.CIM_MOTOR_PERC);
+        System.out.println("This is working");
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -30,6 +31,7 @@ public class CollectorIntakeReverse extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
+        System.out.println("end");
         Robot.collector.talonMotorMoveIntake(0);
     }
 }

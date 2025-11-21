@@ -14,8 +14,6 @@ import team.gif.robot.RobotMap;
 public class CollectorCIM extends SubsystemBase {
     private TalonSRX talonMotorIntake;
     private TalonSRX talonMotorIntakeRearLeft;
-    private TalonSRX talonMotorIntakeRearRight;
-    private TalonSRX dualRearIntake;
 
 
     public CollectorCIM() {
@@ -23,23 +21,16 @@ public class CollectorCIM extends SubsystemBase {
         talonMotorIntake.configFactoryDefault();
         talonMotorIntake.setNeutralMode(NeutralMode.Brake);
 
-        talonMotorIntakeRearLeft = new TalonSRX(RobotMap.CIM_REAR_LEFT_ID);
+        talonMotorIntakeRearLeft = new TalonSRX(RobotMap.CIM_REAR_ID);
         talonMotorIntakeRearLeft.configFactoryDefault();
         talonMotorIntakeRearLeft.setNeutralMode(NeutralMode.Brake);
         talonMotorIntakeRearLeft.setInverted(true);
-
-        talonMotorIntakeRearRight = new TalonSRX(RobotMap.CIM_REAR_RIGHT_ID);
-        talonMotorIntakeRearRight.configFactoryDefault();
-        talonMotorIntakeRearRight.setNeutralMode(NeutralMode.Brake);
-        talonMotorIntakeRearRight.setInverted(true);
-
-        talonMotorIntakeRearLeft.follow(talonMotorIntakeRearRight);
     }
     public void talonMotorMoveIntake(double percentOutput){
         talonMotorIntake.set(TalonSRXControlMode.PercentOutput, percentOutput);
     }
 
     public void talonMotorMoveIntakeRear(double percentOutputRear) {
-        talonMotorIntakeRearRight.set(TalonSRXControlMode.PercentOutput, percentOutputRear);
+        talonMotorIntakeRearLeft.set(TalonSRXControlMode.PercentOutput, percentOutputRear);
     }
 }

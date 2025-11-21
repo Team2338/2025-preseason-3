@@ -25,7 +25,7 @@ public class DriveTrain extends SubsystemBase {
 
         rightCIM.setNeutralMode(NeutralMode.Brake);
         leftCIM.setNeutralMode(NeutralMode.Brake);
-
+        leftCIM.setInverted(true);
         driveTrain = new DifferentialDrive(leftCIM, rightCIM);
     }
     //Type 1 TankDrive

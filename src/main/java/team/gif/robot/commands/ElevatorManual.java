@@ -19,7 +19,7 @@ public class ElevatorManual extends Command {
     @Override
     public void execute() {
         double manualUp = Robot.oi.aux.getLeftY();
-        Robot.elevatorNEO.setVoltage(manualUp);
+        Robot.elevatorNEO.setVoltage(manualUp * 12);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

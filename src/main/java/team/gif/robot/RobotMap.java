@@ -5,12 +5,11 @@ public abstract class RobotMap {
     public static final int DRIVER_CONTROLLER_ID = 0;
     public static final int AUX_CONTROLLER_ID = 1;
     public static final int TEST_CONTROLLER_ID = 2;
-    public static final int CIM_RIGHT = 0; //Put in actual ID
-    public static final int CIM_LEFT = 0; //Put in actual ID
-    public static final int ELEVATOR_NEO_ID = 0; //put in actual ID
-    public static final int COLLECTOR_CIM_ID = 0; //put in actual ID
+    public static final int CIM_RIGHT = 1; //Put in actual ID
+    public static final int CIM_LEFT = 33; //Put in actual ID
+    public static final int ELEVATOR_NEO_ID = 14; //put in actual ID
+    public static final int COLLECTOR_CIM_ID = 3; //put in actual ID
     public static final int PIGEON_ID = 0; //put in actual ID
-    public static final int CIM_REAR_LEFT_ID = 0;
-    public static final int CIM_REAR_RIGHT_ID = 0;
+    public static final int CIM_REAR_ID = 8;
     // Put in actual ID
 }

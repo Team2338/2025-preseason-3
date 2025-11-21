@@ -3,6 +3,8 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class UI {
     /**
@@ -15,8 +17,10 @@ public class UI {
      *  and save file as "YYYY elastic-layout.json"
      */
     public UI() {
+        SmartDashboard.putData("Commands", CommandScheduler.getInstance());
+
         ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("Preseason 3");
-        shuffleboardTab.addDouble("Heading", Robot.pigeon::get360Heading).withWidget(BuiltInWidgets.kGyro);
+//        shuffleboardTab.addDouble("Heading", Robot.pigeon::get360Heading).withWidget(BuiltInWidgets.kGyro);
         shuffleboardTab.addDouble("NEO Position", Robot.elevatorNEO::getPosition).withWidget(BuiltInWidgets.kEncoder);
         shuffleboardTab.addDouble("Spark voltage", Robot.elevatorNEO::getVoltage).withWidget(BuiltInWidgets.kVoltageView);
         

@@ -14,9 +14,9 @@ package team.gif.robot;
  */
 //Encoder value format: value per RPM * number of rotations
 public final class Constants {
-    public static final double ELEVATOR_VOLT = 0.25; //needs testing
+    public static final double ELEVATOR_VOLT = 2.5; //needs testing
     public static final double HOLD_ELEVATOR_FF = 0.003; //needs testing
-    public static final double CIM_MOTOR_PERC = 0.25; //needs testing
+    public static final double CIM_MOTOR_PERC = 0.5; //needs testing
     public static final double FINAL_POSITION = 42 * 50; //needs testing
     public static final double SAFE_FALL_VOLT = -0.01; //needs testing
     public static final double STAGE_ONE_VALUE = 42 * 15; //Needs testing

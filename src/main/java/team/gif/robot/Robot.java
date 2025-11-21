@@ -27,7 +27,6 @@ public class Robot extends TimedRobot {
   public static OI oi;
   public static DriveTrain arcadeDrive;
   public static Pigeon pigeon;
-  public static Command autonamousCommand;
   public static ElevatorNEO elevatorNEO;
   public static CollectorCIM collector;
 
@@ -46,11 +45,11 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     arcadeDrive = new DriveTrain();
     arcadeDrive.setDefaultCommand(new ArcadeDrive());
-    autonamousCommand = new ForwardAuto();
+    autonomousCommand = new ForwardAuto();
     elevatorNEO = new ElevatorNEO();
     elevatorNEO.setDefaultCommand(new ElevatorManual());
     collector = new CollectorCIM();
-    pigeon = new Pigeon(RobotMap.PIGEON_ID);
+//    pigeon = new Pigeon(RobotMap.PIGEON_ID);
     //These should be at or near the bottom
     oi = new OI();
     ui = new UI();
@@ -73,8 +72,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     ui.update();
-      System.out.println(pigeon.getHeading());
-      System.out.println(elevatorNEO.getPosition());
+    //System.out.println(elevatorNEO.getPosition());
 
   }
 
@@ -87,11 +85,15 @@ public class Robot extends TimedRobot {
 
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {
+    autonomousCommand.schedule();
+  }
 
   /** This function is called periodically during autonomous. */
   @Override
-  public void autonomousPeriodic() {}
+  public void autonomousPeriodic() {
+
+  }
 
   @Override
   public void teleopInit() {
