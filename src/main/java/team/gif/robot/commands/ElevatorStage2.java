@@ -18,7 +18,7 @@ public class ElevatorStage2 extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.elevatorNEO.setVoltage(Constants.ELEVATOR_VOLT);
+        Robot.elevatorNEO.setVoltage(Constants.ELEVATOR_VOLT*.30);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

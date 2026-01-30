@@ -26,6 +26,7 @@ public class ElevatorManual extends Command {
     @Override
     public boolean isFinished() {
         return false;
+
     }
 
     // Called when the command ends or is interrupted.

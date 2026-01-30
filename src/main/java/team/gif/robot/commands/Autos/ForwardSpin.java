@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Robot;
 
 
-public class ForwardAuto extends Command {
+public class ForwardSpin extends Command {
     double finalTime;
-    public ForwardAuto() {
+    public ForwardSpin() {
         super();
         addRequirements(Robot.arcadeDrive);
 
@@ -22,13 +22,13 @@ public class ForwardAuto extends Command {
     @Override
     public void execute() {
         finalTime+=1;
-        Robot.arcadeDrive.driverArcade(0.7,0);
+        Robot.arcadeDrive.driverArcade(0,0.3);
     }
 
     // Return true when the command should end, false if it[\] should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return (finalTime == 50 * 4);
+        return (finalTime == 50 * 2);
     }
 
     // Called when the command ends or is interrupted.

@@ -23,8 +23,8 @@ public class DriveTrain extends SubsystemBase {
         rightCIM.configFactoryDefault();
         leftCIM.configFactoryDefault();
 
-        rightCIM.setNeutralMode(NeutralMode.Brake);
-        leftCIM.setNeutralMode(NeutralMode.Brake);
+       // rightCIM.setNeutralMode(NeutralMode.Brake);
+        //leftCIM.setNeutralMode(NeutralMode.Brake);
         leftCIM.setInverted(true);
         driveTrain = new DifferentialDrive(leftCIM, rightCIM);
     }

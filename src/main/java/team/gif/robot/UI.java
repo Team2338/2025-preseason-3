@@ -3,10 +3,15 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.commands.Autos.ForwardAuto;
+import team.gif.robot.commands.Autos.ForwardSpin;
 
 public class UI {
+
     /**
      *  Widgets (e.g. gyro, text, True/False flags),
      *  buttons (e.g. SmartDashboard.putData("Reset", new ResetHeading()); ),
@@ -18,12 +23,13 @@ public class UI {
      */
     public UI() {
         SmartDashboard.putData("Commands", CommandScheduler.getInstance());
+       // autoChooser.setDefaultOption("No Auto", new NoAuto());
+       // SmartDashboard.putData("Auto", autoChooser);
 
         ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("Preseason 3");
 //        shuffleboardTab.addDouble("Heading", Robot.pigeon::get360Heading).withWidget(BuiltInWidgets.kGyro);
         shuffleboardTab.addDouble("NEO Position", Robot.elevatorNEO::getPosition).withWidget(BuiltInWidgets.kEncoder);
         shuffleboardTab.addDouble("Spark voltage", Robot.elevatorNEO::getVoltage).withWidget(BuiltInWidgets.kVoltageView);
-        
     }
 
     /**
